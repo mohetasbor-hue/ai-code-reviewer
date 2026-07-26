@@ -25,10 +25,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install anthropic
-       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
+
       - name: Run AI Review
         env:
-          ANTHROPIC_API_KEY: "sk-ant-ВСТАВЬ_СЮДА_СВОЙ_КЛЮЧ"
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python review.py
 
