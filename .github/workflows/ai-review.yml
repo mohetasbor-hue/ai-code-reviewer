@@ -27,8 +27,8 @@ jobs:
           pip install anthropic
 
       - name: Run AI Review
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  env:
+    ANTHROPIC_API_KEY: "sk-ant-твой-настоящий-ключ" }}
         run: |
           python review.py
 
