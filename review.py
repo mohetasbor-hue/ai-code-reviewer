@@ -17,6 +17,13 @@ def get_git_diff():
         return ""
 
 def main():
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        print("❌ ОШИБКА: Переменная ANTHROPIC_API_KEY не найдена в окружении!")
+        with open("review_comment.md", "w", encoding="utf-8") as f:
+            f.write("⚠️ Ошибка авторизации: API key не найден в secrets.")
+        return
+
     diff = get_git_diff()
     
     if not diff.strip():
@@ -25,7 +32,7 @@ def main():
             f.write("Проверено: изменений в коде не обнаружено.")
         return
 
-    client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=api_key)
 
     system_prompt = """
     Ты — Senior Software Engineer. Проведи ревью кода из git diff.
