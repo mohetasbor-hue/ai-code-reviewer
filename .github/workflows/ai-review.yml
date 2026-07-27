@@ -24,11 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install anthropic
+          pip install requests
 
       - name: Run AI Review
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python review.py
 
@@ -45,6 +45,7 @@ jobs:
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: `### 🤖 AI Code Reviewer\n\n${body}`
+                body: `### 🤖 AI Code Reviewer (Gemini)\n\n${body}`
               });
+            }
             }
