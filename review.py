@@ -6,7 +6,7 @@ def main():
     if not api_key:
         raise ValueError("GEMINI_API_KEY secret is missing in GitHub settings!")
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     payload = {
         "contents": [{
