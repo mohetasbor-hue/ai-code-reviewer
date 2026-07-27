@@ -48,4 +48,3 @@ jobs:
                 body: `### 🤖 AI Code Reviewer (Gemini)\n\n${body}`
               });
             }
-            }
