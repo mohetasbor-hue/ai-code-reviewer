@@ -1,6 +1,7 @@
-# Testing Gemini review 
 import os
 import requests
+
+# Testing Gemini review
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -8,10 +9,10 @@ def main():
         raise ValueError("GEMINI_API_KEY secret is missing in GitHub settings!")
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
-    
+
     payload = {
         "contents": [{
-            "parts": [{"text": "You are an expert AI code reviewer. Please provide a short, helpful review summary for this code."}]
+            "parts": [{"text": "You are an expert AI code reviewer. Please provide a short, helpful review summary for this PR."}]
         }]
     }
 
@@ -28,4 +29,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
