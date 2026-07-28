@@ -8,8 +8,12 @@ def main():
     if not api_key:
         raise ValueError("GEMINI_API_KEY secret is missing in GitHub settings!")
 
+ test-gemini-branch
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
 
+    # Using gemini-2.5-flash
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+     main
     payload = {
         "contents": [{
             "parts": [{"text": "You are an expert AI code reviewer. Please provide a short, helpful review summary for this PR."}]
